@@ -105,7 +105,7 @@ int main(void)
     /* USER CODE BEGIN 3 */
 	 max7219_Clean();
    max7219_PrintFtos(DIGIT_8, -3.14, 2);
-   max7219_PrintDigit(DIGIT_4, 0x0C, 0);
+   max7219_PrintDigit(DIGIT_4, LETTER_H, 0);
    max7219_PrintDigit(DIGIT_3, LETTER_E, false);
    max7219_PrintDigit(DIGIT_2, LETTER_L, false);
    max7219_PrintDigit(DIGIT_1, LETTER_P, false);
