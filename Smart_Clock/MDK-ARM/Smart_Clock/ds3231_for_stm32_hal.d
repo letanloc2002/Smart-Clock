@@ -1,5 +1,7 @@
-smart_clock/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
-  ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h \
+smart_clock/ds3231_for_stm32_hal.o: \
+  ..\..\Lib\STM32_DS3231_I2C_MAIN\ds3231_for_stm32_hal.c \
+  ..\..\Lib\STM32_DS3231_I2C_MAIN\ds3231_for_stm32_hal.h \
+  ..\Core\Inc\main.h ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h \
   ..\Core\Inc\stm32f1xx_hal_conf.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_def.h \
@@ -26,7 +28,4 @@ smart_clock/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash_ex.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_i2c.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pwr.h \
-  ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_spi.h \
-  ..\Core\Inc\max7219.h C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h \
-  ..\Core\Inc\ds3231_for_stm32_hal.h \
-  C:\Keil_v5\ARM\ARMCLANG\include\stdio.h
+  ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_spi.h

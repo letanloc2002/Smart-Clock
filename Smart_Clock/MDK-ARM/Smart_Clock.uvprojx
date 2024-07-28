@@ -330,7 +330,7 @@
             <uC99>1</uC99>
             <uGnu>0</uGnu>
             <useXO>0</useXO>
-            <v6Lang>1</v6Lang>
+            <v6Lang>3</v6Lang>
             <v6LangP>3</v6LangP>
             <vShortEn>1</vShortEn>
             <vShortWch>1</vShortWch>
@@ -419,6 +419,16 @@
               <FileName>max7219.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Lib\STM32_MAX7219_SPI-master\max7219.c</FilePath>
+            </File>
+            <File>
+              <FileName>ds3231_for_stm32_hal.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Lib\STM32_DS3231_I2C_MAIN\ds3231_for_stm32_hal.c</FilePath>
+            </File>
+            <File>
+              <FileName>ds3231_for_stm32_hal.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\Lib\STM32_DS3231_I2C_MAIN\ds3231_for_stm32_hal.h</FilePath>
             </File>
           </Files>
         </Group>

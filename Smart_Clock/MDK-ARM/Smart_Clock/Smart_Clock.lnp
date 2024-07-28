@@ -4,6 +4,7 @@
 "smart_clock\stm32f1xx_it.o"
 "smart_clock\stm32f1xx_hal_msp.o"
 "smart_clock\max7219.o"
+"smart_clock\ds3231_for_stm32_hal.o"
 "smart_clock\stm32f1xx_hal_gpio_ex.o"
 "smart_clock\stm32f1xx_hal_i2c.o"
 "smart_clock\stm32f1xx_hal.o"

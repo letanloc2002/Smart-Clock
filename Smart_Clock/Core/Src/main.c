@@ -19,6 +19,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "max7219.h"
+#include "ds3231_for_stm32_hal.h"
+#include "stdio.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -58,7 +60,19 @@ static void MX_SPI1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+//void printr(uint8_t reg) {
+//	printf("Reg 0x%02x = ", reg);
+//	uint8_t val;
+//	HAL_I2C_Master_Transmit(_ds3231_ui2c, DS3231_I2C_ADDR << 1, &reg, 1,
+//			DS3231_TIMEOUT);
+//	HAL_StatusTypeDef s = HAL_I2C_Master_Receive(_ds3231_ui2c,
+//			DS3231_I2C_ADDR << 1, &val, 1, DS3231_TIMEOUT);
+//	for (int i = 0; i < 8; i++) {
+//		printf("%d", (val >> (7 - i)) & 1);
+//	}
+//	printf(" With status %d", s);
+//	printf("\n");
+//}
 /* USER CODE END 0 */
 
 /**
@@ -92,8 +106,25 @@ int main(void)
   MX_I2C1_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
+
 	max7219_Init(7);
   max7219_Decode_On();
+		//DS3231 init function. Pass I2C handle.
+	DS3231_Init(&hi2c1);
+	//Disable interrupts while we set interrupt configs.
+	__disable_irq();
+	//Set interrupt mode to square wave mode, enable square wave interrupt at pin 3.
+	DS3231_SetInterruptMode(DS3231_SQUARE_WAVE_INTERRUPT);
+	//Set interrupting frequency to 1 Hz.
+	DS3231_SetRateSelect(DS3231_1HZ);
+	//Set time.
+	DS3231_SetFullTime(15, 37, 00);
+	//Set date.
+	DS3231_SetFullDate(28, 7, 8, 2024);
+	//Print all register values, for demonstration purpose
+
+	//Enable interrupts after finishing.
+	__enable_irq();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -104,16 +135,19 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 	 max7219_Clean();
-   max7219_PrintFtos(DIGIT_8, -3.14, 2);
-   max7219_PrintDigit(DIGIT_4, LETTER_H, 0);
-   max7219_PrintDigit(DIGIT_3, LETTER_E, false);
-   max7219_PrintDigit(DIGIT_2, LETTER_L, false);
-   max7219_PrintDigit(DIGIT_1, LETTER_P, false);
-   HAL_Delay(1500);
-   max7219_Clean();
-   max7219_PrintNtos(DIGIT_8, 8765, 4);
-   max7219_PrintItos(DIGIT_3, 321);
-   HAL_Delay(1500);
+	 max7219_PrintNtos(DIGIT_5, DS3231_GetTemperatureFraction(), 2);
+	 max7219_PrintNtos(DIGIT_8, DS3231_GetTemperatureInteger(), 2);
+   HAL_Delay(2000);
+	 max7219_Clean();
+	 max7219_PrintNtos(DIGIT_5, DS3231_GetMinute(), 2);
+	 max7219_PrintNtos(DIGIT_8, DS3231_GetHour(), 2);
+		max7219_PrintNtos(DIGIT_2, DS3231_GetSecond(), 2);
+   HAL_Delay(2000);
+		max7219_Clean();
+	 max7219_PrintNtos(DIGIT_5, DS3231_GetMonth(), 2);
+	 max7219_PrintNtos(DIGIT_8, DS3231_GetYear(), 2);
+		max7219_PrintNtos(DIGIT_2, DS3231_GetDate(), 2);
+   HAL_Delay(2000);
   }
   /* USER CODE END 3 */
 }
