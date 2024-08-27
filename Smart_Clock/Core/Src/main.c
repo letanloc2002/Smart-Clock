@@ -111,20 +111,20 @@ int main(void)
   max7219_Decode_On();
 		//DS3231 init function. Pass I2C handle.
 	DS3231_Init(&hi2c1);
-	//Disable interrupts while we set interrupt configs.
-	__disable_irq();
-	//Set interrupt mode to square wave mode, enable square wave interrupt at pin 3.
-	DS3231_SetInterruptMode(DS3231_SQUARE_WAVE_INTERRUPT);
-	//Set interrupting frequency to 1 Hz.
-	DS3231_SetRateSelect(DS3231_1HZ);
+//	//Disable interrupts while we set interrupt configs.
+//	__disable_irq();
+//	//Set interrupt mode to square wave mode, enable square wave interrupt at pin 3.
+//	DS3231_SetInterruptMode(DS3231_SQUARE_WAVE_INTERRUPT);
+//	//Set interrupting frequency to 1 Hz.
+//	DS3231_SetRateSelect(DS3231_1HZ);
 	//Set time.
-	DS3231_SetFullTime(15, 37, 00);
+//	DS3231_SetFullTime(15, 49, 30);
 	//Set date.
-	DS3231_SetFullDate(28, 7, 8, 2024);
+//	DS3231_SetFullDate(28, 7, 8, 2024);
 	//Print all register values, for demonstration purpose
 
 	//Enable interrupts after finishing.
-	__enable_irq();
+//	__enable_irq();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -145,8 +145,8 @@ int main(void)
    HAL_Delay(2000);
 		max7219_Clean();
 	 max7219_PrintNtos(DIGIT_5, DS3231_GetMonth(), 2);
-	 max7219_PrintNtos(DIGIT_8, DS3231_GetYear(), 2);
-		max7219_PrintNtos(DIGIT_2, DS3231_GetDate(), 2);
+	 max7219_PrintNtos(DIGIT_8, DS3231_GetDate(), 2);
+		max7219_PrintNtos(DIGIT_2, DS3231_GetYear(), 2);
    HAL_Delay(2000);
   }
   /* USER CODE END 3 */
