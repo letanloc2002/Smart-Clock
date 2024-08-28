@@ -1,0 +1,6 @@
+1. STM32F401RE NUCLEO	: Main microcontroller
+2. DS3231		: Real time clock module for timekeeping 
+3. CJMCU-75		: Temperature sensor module
+4. BUTTON		: User Interaction module
+5. BUZZER		: Audio module for notifications
+6. LED RGB		: Status indicator lights for the clock.

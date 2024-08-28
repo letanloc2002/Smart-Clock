@@ -1,0 +1,13 @@
+Chức năng:
+- Clock :
+	+ Day/Month/Year - Hour/Minute/Second - Temperature in Celcius
+
+	+ StopWatch: minute/second/tiktak
+	+ Alarm:  	* Limitted 10 alarms: Day/Month/Year - Hour/Minute/Second - Lịch lặp lại.
+	+ Setting time: Set Day/Month/Year - Hour/Minute/Second
+- Game:
+	+ Snake
+	+ ball wall
+- Setting:
+	+ Display: Themes - Light
+	+ Diagnostic: check connection.
