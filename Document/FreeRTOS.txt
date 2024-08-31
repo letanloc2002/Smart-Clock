@@ -1,0 +1,24 @@
+--------------------------------------------------
+Bài 1: OPERATION SYSTEM
+1. LAYER ARCHITECTURE.
+ Embedded system 
++ Software:
++ Hardware: 
+
+OS manage hardware
+	
+	* chia hệ điều hành thành 2 loại:
+	
+- Phân loại theo độ chính xác, REALTIME
+	+ embedded OS  = RTOS		: FreeRTOS, uOS
+		- specific
+		- real time
+		- luôn luôn chính xác
+	+ GPOS (general purpose )	: Windows, Linux
+		- có thể bị crash
+		- Not real time	
+		- đa nhiệm
+- hệ điều hành là một chương trình hay một hệ chương trình
+- HDH hoạt động giữa ứng dụng người dùng và phần cứng của máy tính
+- HDH quản lí phần cứng - xài chung cho mọi apps
+- HDH giúp người dùng, nhà phát triển ứng dụng dễ dàng hơn
